@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import controller.GameController;
+import model.GameModel;
+import view_model.ViewObject;
 
 public class TankWarView extends JFrame implements ActionListener, Observer {
 
@@ -47,13 +49,22 @@ public class TankWarView extends JFrame implements ActionListener, Observer {
 	
 	
 	
-	
-	
-	
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-
+		if (o instanceof GameModel) {
+			ViewObject viewObj = (ViewObject) arg;
+			switch (viewObj.getMessageType())
+			{
+			case GAMESTART:
+				
+				break;
+			case GAMEEND:
+				
+				break;
+			default:
+				// do nothing
+			}
+		}
 	}
 
 	@Override

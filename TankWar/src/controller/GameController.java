@@ -39,7 +39,8 @@ public class GameController {
 	 *    电脑坦克控制器负责通知各个电脑坦克开始移动，检查是否有可攻击范围的用户坦克，有的话发射炮弹
 	 *    子弹控制器负责定时遍历子弹，群发移动命令
 	 * 2、使用默认游戏参数，向GameModel发送新建游戏的消息
-	 *    GameModel使用默认参数新建地图，即各个CellModel，然后在各个入口处新建用户坦克和电脑坦克
+	 *    GameModel使用默认参数新建地图，即各个CellModel，
+	 *    按：由GameModel在入口处新建用户坦克和电脑坦克，
 	 *    新建地图完成后，向UI返回完成新建消息，UI显示地图view，并显示用户坦克和电脑坦克，用户开始操作
 	 */
 	public void startGame()

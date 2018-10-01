@@ -4,9 +4,9 @@ import model.GameModel;
 
 public abstract class GameMsg {
 	
-	private MessageType msgType;
+	protected MessageType msgType;
 	
-	private GameModel gameModel;
+	protected GameModel gameModel;
 
 	public GameMsg(GameModel gameModel, MessageType msgType)
 	{

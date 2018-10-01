@@ -1,6 +1,6 @@
 package model;
 
-public class Position {
+public class BoardPoint {
 	
 	private double x;
 	
@@ -10,7 +10,7 @@ public class Position {
 	
 	private int gameBoardHeight;
 	
-	public Position(int x, int y, int width, int height)
+	public BoardPoint(double x, double y, int width, int height)
 	{
 		this.x = x;
 		this.y = y;

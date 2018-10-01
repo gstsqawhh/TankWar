@@ -13,7 +13,7 @@ public class NewTankMsg extends GameMsg{
 	@Override
 	public void execute()
 	{
-		
+		gameModel.newTank();
 		
 	}
 

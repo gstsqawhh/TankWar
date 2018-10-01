@@ -2,14 +2,14 @@ package message;
 
 import model.GameModel;
 import model.MoveDirection;
-import model.Position;
+import model.BoardPoint;
 import model.StoneType;
 
 public class NewStoneMsg extends GameMsg {
 
 	private long tankId;
 	
-	private Position newPosition;
+	private BoardPoint newPosition;
 	
 	private MoveDirection direction;
 	
@@ -23,7 +23,7 @@ public class NewStoneMsg extends GameMsg {
 	@Override
 	public void execute()
 	{
-		
+		gameModel.newStone();
 
 	}
 
@@ -35,11 +35,11 @@ public class NewStoneMsg extends GameMsg {
 		this.tankId = tankId;
 	}
 
-	public Position getNewPosition() {
+	public BoardPoint getNewPosition() {
 		return newPosition;
 	}
 
-	public void setNewPosition(Position newPosition) {
+	public void setNewPosition(BoardPoint newPosition) {
 		this.newPosition = newPosition;
 	}
 

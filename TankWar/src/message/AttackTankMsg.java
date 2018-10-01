@@ -19,6 +19,7 @@ public class AttackTankMsg extends GameMsg{
 	@Override
 	public void execute()
 	{
+		gameModel.attackTank();
 		
 	}
 

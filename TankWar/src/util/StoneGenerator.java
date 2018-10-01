@@ -2,6 +2,11 @@ package util;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import model.StoneLowModel;
+import model.StoneGoodModel;
+import model.StoneCommonModel;
+import model.ModelShapePosition;
+import model.MoveDirection;
 import model.StoneModel;
 
 
@@ -28,19 +33,19 @@ public class StoneGenerator {
 		return new StoneModel(stoneId.getAndIncrement());
 	}
 	
-	public StoneModel generateGoodStone()
+	public StoneModel generateGoodStone(long tankId, ModelShapePosition modelPosition, MoveDirection direction)
 	{
-		
+		return new StoneGoodModel(stoneId.getAndIncrement(), tankId, modelPosition, direction);
 	}
 	
-	public StoneModel generateMiddleStone()
+	public StoneModel generateMiddleStone(long tankId, ModelShapePosition modelPosition, MoveDirection direction)
 	{
-		
+		return new StoneCommonModel(stoneId.getAndIncrement(), tankId, modelPosition, direction);
 	}
 
-	public StoneModel generateBadStone()
+	public StoneModel generateBadStone(long tankId, ModelShapePosition modelPosition, MoveDirection direction)
 	{
-		
+		return new StoneLowModel(stoneId.getAndIncrement(), tankId, modelPosition, direction);
 	}
 	
 }

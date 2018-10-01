@@ -2,6 +2,11 @@ package util;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import model.ModelShapePosition;
+import model.MoveDirection;
+import model.TankCommonModel;
+import model.TankGoodModel;
+import model.TankLowModel;
 import model.TankModel;
 
 public class TankGenerator {
@@ -27,5 +32,19 @@ public class TankGenerator {
 		return new TankModel(tankId.getAndIncrement());
 	}
 	
+	public TankModel generateGoodTank(ModelShapePosition modelPosition, MoveDirection direction, String tankName)
+	{
+		return new TankGoodModel(tankId.getAndIncrement(), modelPosition, direction, tankName);
+	}
+	
+	public TankModel generateMiddleTank(ModelShapePosition modelPosition, MoveDirection direction, String tankName)
+	{
+		return new TankCommonModel(tankId.getAndIncrement(), modelPosition, direction, tankName);
+	}
+
+	public TankModel generateBadTank(ModelShapePosition modelPosition, MoveDirection direction, String tankName)
+	{
+		return new TankLowModel(tankId.getAndIncrement(), modelPosition, direction, tankName);
+	}
 
 }

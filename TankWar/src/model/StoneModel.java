@@ -1,7 +1,5 @@
 package model;
 
-import util.ConstantsUtil;
-
 /**
  * StoneModel可以作为父类，各个子类炮弹类型可以继承它，并默认设置stoneType、speed、attackBloodOnce等属性
  * 当然也可以读取配置文件，但在这里的话可以写死到子类的初始化函数中，也可以写在ConstantsUtil的固定参数中，
@@ -14,17 +12,20 @@ import util.ConstantsUtil;
 public class StoneModel {
 	
 	private long stoneId;
+
+	private long tankId;
 	
-	private Position position;
+	private ModelShapePosition modelPosition;
 	
+	private MoveDirection moveDirection;
+	
+	// 以下属性根据stoneType呈现固定的值
 	private StoneType stoneType;
 	
 	private int attackBloodOnce;
 	
-	private long tankId;
-	
-	private MoveDirection moveDirection;
-	
+	// 表示子弹移动的速度，每种坦克的速度恒定，单位是x单位/s，单位即是坐标系中为1的长度，如坦克在坐标系中的面积为1*1，
+	// 然后在子弹控制器中，如每100ms移动一次，则根据速度可以算出，每次移动的距离为x/10单位长度，
 	private double stoneSpeed;
 	
 	public StoneModel(long stoneId)
@@ -32,11 +33,11 @@ public class StoneModel {
 		this.setStoneId(stoneId);
 	}
 	
-	public StoneModel(long stoneId, long tankId, Position position, MoveDirection direction)
+	public StoneModel(long stoneId, long tankId, ModelShapePosition modelPosition, MoveDirection direction)
 	{
 		this.stoneId = stoneId;
 		this.tankId = tankId;
-		this.position = position;
+		this.modelPosition = modelPosition;
 		this.moveDirection = direction;
 	}
 
@@ -50,31 +51,7 @@ public class StoneModel {
 	 */
 	public void move(int distance)
 	{
-		switch(moveDirection)
-		{
-			case EAST:
-			{
-				position.setX(position.getX() + distance);
-				break;
-			}
-			case WEST:
-			{
-				position.setX(position.getX() - distance);
-				break;
-			}
-			case NORTH:
-			{
-				position.setY(position.getY() + distance);
-				break;
-			}
-			case SOUTH:
-			{
-				position.setY(position.getY() - distance);
-				break;
-			}
-			default:
-				// do nothing
-		}
+		modelPosition.move(moveDirection, distance);
 	}
 	
 	public void destroy()
@@ -96,14 +73,6 @@ public class StoneModel {
 
 	public void setMoveDirection(MoveDirection moveDirection) {
 		this.moveDirection = moveDirection;
-	}
-
-	public Position getPosition() {
-		return position;
-	}
-
-	public void setPosition(Position position) {
-		this.position = position;
 	}
 
 	public StoneType getStoneType() {
@@ -136,6 +105,14 @@ public class StoneModel {
 
 	public void setStoneSpeed(double stoneSpeed) {
 		this.stoneSpeed = stoneSpeed;
+	}
+
+	public ModelShapePosition getModelPosition() {
+		return modelPosition;
+	}
+
+	public void setModelPosition(ModelShapePosition modelPosition) {
+		this.modelPosition = modelPosition;
 	}
 
 }

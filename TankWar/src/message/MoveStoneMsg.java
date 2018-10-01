@@ -19,6 +19,7 @@ public class MoveStoneMsg extends GameMsg {
 	@Override
 	public void execute()
 	{
+		gameModel.moveStone();
 		
 	}
 

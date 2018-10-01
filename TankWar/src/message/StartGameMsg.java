@@ -24,7 +24,7 @@ public class StartGameMsg extends GameMsg {
 	@Override
 	public void execute()
 	{
-		
+		gameModel.startGame(gameLevel, playerName, gameBoardWidth, gameBoardHeight);
 	}
 
 	public int getGameLevel() {

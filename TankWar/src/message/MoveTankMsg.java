@@ -19,6 +19,7 @@ public class MoveTankMsg extends GameMsg {
 	@Override
 	public void execute()
 	{
+		gameModel.moveTank();
 		
 	}
 

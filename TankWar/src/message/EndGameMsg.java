@@ -18,7 +18,7 @@ public class EndGameMsg extends GameMsg {
 	@Override
 	public void execute()
 	{
-		
+		gameModel.endGame();
 		
 	}
 
